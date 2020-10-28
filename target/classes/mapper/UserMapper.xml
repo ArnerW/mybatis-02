@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.arner.mybatis.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.qf.arner.mybatis.entity.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+</resultMap>
+
+    <resultMap id="collectionResultMap" type="com.qf.arner.mybatis.entity.User" extends="BaseResultMap">
+    <collection property="addresses" resultMap="com.qf.arner.mybatis.mapper.AddressMapper.BaseResultMap"/>
+</resultMap>
+
+    <!--    根据用户ID查询地址-->
+    <select id="selectAddressByUserId" resultMap="collectionResultMap">
+    select * from user u left join t_address ta on u.id = ta.user_id where u.id = #{userId}
+</select>
+</mapper>

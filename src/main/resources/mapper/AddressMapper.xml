@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.arner.mybatis.mapper.AddressMapper">
+    <resultMap id="BaseResultMap" type="com.qf.arner.mybatis.entity.Address">
+    <id property="addrId" column="addr_id"/>
+    <result property="userId" column="user_id"/>
+    <result property="consignee" column="consignee"/>
+    <result property="tel" column="tel"/>
+    <result property="location" column="location"/>
+    <result property="detailedadd" column="detailedadd"/>
+    <result property="isDef" column="is_def"/>
+</resultMap>
+
+</mapper>
